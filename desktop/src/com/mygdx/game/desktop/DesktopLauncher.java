@@ -10,7 +10,7 @@ public class DesktopLauncher {
 
 		config.title = "Batalha de Midway";
 		config.width = 800;
-		config.height = 600;
+		config.height = 500;
 
 		new LwjglApplication(new MyGdxGame(), config);
 	}

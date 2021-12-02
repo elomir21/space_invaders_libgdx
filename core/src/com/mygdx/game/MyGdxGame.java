@@ -8,28 +8,41 @@ import com.badlogic.gdx.utils.ScreenUtils;
 
 public class MyGdxGame extends ApplicationAdapter {
 	SpriteBatch batch;
-	Texture img;
-	float w,h;
+	Texture textureBackground;
+	Texture textureShip;
+	float w, h;
+	Background background;
+	Actor avatar;
 	
 	@Override
 	public void create () {
 		w = Gdx.graphics.getWidth();
 		h = Gdx.graphics.getHeight();
 		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+		textureBackground = new Texture("sea_sprite.png");
+		background = new Background(textureBackground, this);
+		textureShip = new Texture("USA1.png");
+		avatar = new Actor(w / 2f - textureShip.getWidth() / 2f, 10, textureShip, this);
+	}
+
+	public void run() {
+		background.run();
 	}
 
 	@Override
 	public void render () {
+		run();
 		ScreenUtils.clear(1, 0, 0, 1);
 		batch.begin();
-		batch.draw(img, 0, 0);
+		background.draw();
+		avatar.draw();
 		batch.end();
 	}
 	
 	@Override
 	public void dispose () {
 		batch.dispose();
-		img.dispose();
+		textureBackground.dispose();
+		textureShip.dispose();
 	}
 }
