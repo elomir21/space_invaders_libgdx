@@ -28,6 +28,9 @@ public class Enemy extends Actor {
                 direction = RIGHT;
             }
         }
+        if (sprite.getY() + sprite.getHeight() < 0){
+            dead = true;
+        }
     }
 
 }

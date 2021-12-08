@@ -15,6 +15,7 @@ public class Background {
     }
 
     public void run() {
+        if(game.pause) return;
         ay -= 2;
         by -= 2;
 
